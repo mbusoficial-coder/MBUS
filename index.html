@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>M'BUS</title>
+
+  <!-- CSS UNIFICADO (style.css + style2.css + style3.css + style4.css) -->
+  <style>
+    
+  /* ========== Reset y base ========== */
+  *{ box-sizing:border-box; margin:0; padding:0; list-style:none; text-decoration:none; }
+  html,body{ font-family: 'Times New Roman', Times, serif; color:#0b4d60; background:#fff; }
+
+
+  #logoheader{
+    background-color: #FFF;
+    border-radius: 20px;
+    padding: 10px;
+    
+  }
+  /* ========== Header (común) ========== */
+  #logo1{ height:auto; width:60px; border-radius: 15px;}
+  .header{box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18), 
+            0 6px 12px rgba(0, 0, 0, 0.10), 
+            inset 0 2px 6px rgba(255, 255, 255, 0.35); border-radius: 50px;
+    display:flex; align-items:center; justify-content:space-between;
+    background: rgba(255, 255, 255, 0.155);
+    position:fixed; z-index:1000; top:0; left:0;
+    width:100%; height:60px; padding:0 10px; box-shadow:0 2px 6px rgba(0,0,0,0.04);
+  }
+  /* =================== MENÚ TIPO BURBUJA =================== */
+.BN{
+  display:flex;
+  align-items:center;
+  gap: 20px;
+}
+
+.BN a{
+  color:#FFF;
+  font-size:18px;
+  padding:10px 18px;
+  background:rgba(255, 255, 255, 0.247);
+  border-radius:40px;
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow:0 4px 12px rgba(0,0,0,0.12);
+  transition:0.3s;
+    display: inline-block;
+}
+
+.BN a:hover{
+  background:rgba(255,255,255,0.7);
+  transform:translateY(-3px);
+}
+
+/* BOTÓN PRINCIPAL (Descargar) estilo burbuja */
+#btn1{
+  background:#0b4d60;
+  color:#fff;
+  padding:10px 26px;
+  border-radius:40px;
+  border:none;
+  cursor:pointer;
+  font-size:16px;
+  box-shadow:0 4px 14px rgba(14,138,160,0.35);
+  transition:0.3s;
+}
+
+#btn1:hover{
+  background:#0b6f7f;
+  transform:translateY(-3px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18), 
+            0 6px 12px rgba(0, 0, 0, 0.10), 
+            inset 0 2px 6px rgba(255, 255, 255, 0.35); 
+}
+
+
+  /* ========== SECCIONES GENERALES ========== */
+  main{ margin: top 20px; } /* deja espacio para header */
+
+  /* ---- Sección inicio (video hero) ---- */
+  .inicio{ position:calc(); width:100%; height:550px; overflow:hidden; }
+  .inicio video{box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18), 
+            0 6px 12px rgba(0, 0, 0, 0.10), 
+            inset 0 2px 6px rgba(255, 255, 255, 0.35); 
+    position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0;
+    filter:brightness(0.4);
+  }
+  #texto1{border-radius: 50px; position:relative; z-index:2; color:#fff; padding:120px 30px; max-width:780px; }
+  #para1{ font-size:15px; font-weight:300; color:rgba(255,255,255,0.95); }
+  #title1{ font-size:56px; line-height:1; font-weight:400; color:#fff; margin:6px 0 12px; }
+  #para12{ font-size:20px; color:#fff; margin-bottom:18px; }
+  .btn2{
+    background:#fff; color:#0b4d60; padding:10px 28px; border-radius:30px; border:none; cursor:pointer;
+    font-size:18px;
+  }
+  .btn2:hover{ background:#FFF; 
+transform:translateY(-3px);
+transition: 0.3s;
+  box-shadow:  3px 3px 9px rgba(255, 255, 255, 0.8) }
+
+  /* ---- Conócenos (cards) ---- */
+  .conocenos{
+    background:#fff; width:100%; padding:48px 18px; margin-top:-25px; position:relative; z-index:1;
+  }
+  #t2{ text-align:center; font-size:30px; font-weight:300; color:#0b4d60; margin-bottom:10px; }
+  #para2{ text-align:center; color:#0b4d60; margin:30px auto; max-width:900px; }
+  .container-cards{ display:flex; justify-content:center; gap:24px; flex-wrap:wrap;height: 200px; }
+  .card{
+    background:#fff; padding:20px; width:280px; border-radius:10px; box-shadow:0 6px 7px rgba(0,0,0,0.08);
+    text-align:center; justify-items: center;
+  }
+  .card .icon{ height: 55px; width: 100px;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18), 
+            0 6px 12px rgba(0, 0, 0, 0.10), 
+            inset 0 2px 6px rgba(255, 255, 255, 0.35); font-size:44px; color:#0b4d60; margin-bottom:10px; border-radius: 50px;}
+  .card h3{ margin:8px 0; font-weight:600; color:#0b4d60; }
+  .card p{ color:#555; font-size:14px; margin-bottom:14px; }
+  .card button{ box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18), 
+            0 6px 12px rgba(0, 0, 0, 0.10), 
+            inset 0 2px 6px rgba(255, 255, 255, 0.35); background:#0b4d60; color:#fff; padding:10px 20px; border-radius:25px; border:none; cursor:pointer; }
+  .card button:hover{box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18), 
+            0 6px 12px rgba(0, 0, 0, 0.10), 
+            inset 0 2px 6px rgba(255, 255, 255, 0.35);  background:#3a859a; 
+        transform:translateY(-3px);
+transition: 0.3s;}
+
+  .card:hover{ 
+    transform:translateY(-3px);
+transition: 0.3s;
+  }
+
+  /* ---- PT3 / Final hero with bg image ---- */
+  .pt3{ position:relative; width:100%; height:450px; margin-top:32px; overflow:hidden;
+padding-top: -70px; }
+  .pt3::before{
+    content:''; position:absolute; inset:0; background-image:url('images2/img2.jpg'); background-size:cover;
+    background-position:center; filter:brightness(0.5); z-index:0;
+  }
+  .final{
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18), 
+            0 6px 12px rgba(0, 0, 0, 0.10), 
+            inset 0 2px 6px rgba(255, 255, 255, 0.35); border-radius: 50px; position:relative; z-index:2; color:#fff; padding:40px 20px; max-width:1100px; margin:0 auto; top:50%; transform:translateY(-10%); }
+  .final h1{ font-size:40px; margin-bottom:12px; }
+  .final p{ color:#fff; font-size:18px; margin-bottom:20px; }
+  .botones1{ margin-top:8px; }
+  .btn4{ background:#fff; color:#0b4d60; padding:10px 20px; border-radius:30px; border:none; cursor:pointer; margin-right:10px; }
+  .btn4:hover{ background:#FFF;  transform:translateY(-3px);
+transition: 0.3s; box-shadow: 0 6px 10px rgba(255, 255, 255, 0.4);
+}
+  .btn41{ box-shadow: 0 12px 10px rgba(0, 0, 0, 0.18), 
+            0 6px 12px rgba(0, 0, 0, 0.10), 
+            inset 0 2px 6px rgba(255, 255, 255, 0.35); background:transparent; color:#fff; padding:10px 20px; border:1px solid rgba(255,255,255,0.4); border-radius:30px; 
+        transform:translateY(-3px);
+transition: 0.3s;}
+
+  .imagen3{ position:relative; }
+  #img3{ position:absolute; right:20px; top:50%; transform:translateY(-50%); max-width:480px; pointer-events:none; }
+
+  /* ========== PÁGINA "index2" (texto, carrusel, misión/visión, equipo) ========== */
+  .pt2{border-radius: 50px; background:#fff; color:#0b4d60; padding:40px 20px; margin-top:40px; text-align: center; }
+  #pt2h{ font-size:30px; text-align:center; margin-bottom:14px; }
+  #p2p{ font-size:18px; text-align:center; max-width:1000px; margin:0 auto 18px; line-height:1.5; color:#0b4d60; }
+
+  .pt3-alt{ background:#0b4d60; color:#fff; padding:40px 20px; text-align:center; margin-top:24px; }
+  #pt3h{ font-size:40px; }
+
+  /* Carrusel (estructura simple) */
+  .carrusel{  padding:40px 10px; text-align:center; color:#0b4d60; border-radius: 50px; }
+  .imagenes{ display:flex; align-items:center; justify-content:center; gap:10px; padding:10px; }
+  .imagenes img{ border-radius:6px; object-fit:cover; width:100%; max-height:280px; }
+  #img-izq,#img-der{ width:22%; opacity:0.8; }
+  #img-centro{ width:48%; }
+
+  .info{  margin:20px auto; max-width:1000px; border-radius: 50px; height: 40dp;}
+  .info h2{ font-weight:400; }
+  .info p{ color:#555; margin:10px 150px; }
+
+  .mision{ box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18), 
+            0 6px 12px rgba(0, 0, 0, 0.10), 
+            inset 0 2px 6px rgba(255, 255, 255, 0.35); background:#0b4d60; color:#fff; padding:35px 20px; text-align:center; margin-top:35px; border-radius: 50px; margin-bottom: 30px;
+            margin-left: auto; margin-right: auto;
+        width: 95%; }
+  .vision{box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18), 
+            0 6px 12px rgba(0, 0, 0, 0.10), 
+            inset 0 2px 6px rgba(255, 255, 255, 0.35);  background:#fff; color:#0b4d60; padding:30px 20px; text-align:center; margin-top:10px; border-radius: 50px; margin-bottom: 100px;
+        margin-left: auto; margin-right: auto;
+        width: 95%;}
+
+  .team-section{box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18), 
+            0 6px 12px rgba(0, 0, 0, 0.10), 
+            inset 0 2px 6px rgba(255, 255, 255, 0.35); border-radius: 50px; max-width:1200px; margin:30px auto; padding:40px; }
+  .team-title{text-align: center; font-size:24px; color:#0b4d60; margin-bottom:18px; margin-left:12px; }
+  .team-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+  .team-member{ text-align:center;border-radius: 50px; }
+  .team-member img{ width:100%; max-width:260px; aspect-ratio:1/1; object-fit:cover; border:1px solid #0b4d60; border-radius:6px; }
+  .team-member h3{ color:#0b4d60; margin-top:10px; font-size:20px; }
+
+  /* ========== PÁGINA "index3" (contacto + FAQ) ========== */
+  .contacto-section{max-width:1100px; margin:40px auto; padding:24px; text-align:center; border-radius: 50px; }
+  .contact-cards{ display:grid; grid-template-columns:repeat(2,1fr); gap:18px; justify-items:center;box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); border-radius: 50px; height: 330px; padding: 30px; margin-top: 20px;}
+  .contact-cards .card{ background:#fff; width:100%; max-width:260px; padding: 20px; border-radius:20px; box-shadow:0 6px 18px rgba(0,0,0,0.08); }
+  .contact-cards .card i{ font-size:28px; margin-bottom:8px; color:#0b4d60; }
+  .faq-section{box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18), 
+            0 6px 12px rgba(0, 0, 0, 0.10), 
+            inset 0 2px 6px rgba(255, 255, 255, 0.35);  background:#fff; padding:40px 25px; border-radius: 50px; margin-top: 10px;}
+  .faq-container{ display:flex; gap:20px; max-width:1100px; margin:0 auto; flex-wrap:wrap; }
+  .faq-left{ flex:2; }
+  .faq-left h2{ font-size:22px; color:#0b4d60; margin-bottom:12px; }
+  .faq-item h3{ font-size:16px; color:#0b4d60; margin-bottom:6px; }
+  .faq-item p{ color:#666; margin-bottom:25px; }
+  .faq-right{ box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18), 
+            0 6px 12px rgba(0, 0, 0, 0.10), 
+            inset 0 2px 6px rgba(255, 255, 255, 0.35); border: bottom 1px;; background:#fff; padding:18px; border-radius:8px; box-shadow:0 6px 18px rgba(0,0,0,0.08); }
+  .faq-right input, .faq-right textarea{  width:100%; padding:10px; border:1px solid #ccc; border-radius:15px; margin-bottom:10px; }
+  #enviarcorreo{ color: #FFF; background-color: #0b4d60; width: 70px; height: 40px; border-radius: 13px;
+
+  }
+
+  /* ========== PÁGINA "index4" (descarga/planes) ========== */
+  .download-app-section{box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18), 
+            0 6px 12px rgba(0, 0, 0, 0.10), 
+            inset 0 2px 6px rgba(255, 255, 255, 0.35); display:flex; gap:20px; align-items:center; justify-content:space-between; padding:30px 20px; background:#0b4d60; color:#fff; margin-top:30px; flex-wrap:wrap; border-radius: 50px;}
+  .download-content{ max-width:700px; }
+  #video10{ box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18), 
+            0 6px 12px rgba(0, 0, 0, 0.10), 
+            inset 0 2px 6px rgba(255, 255, 255, 0.35); max-width:560px; width:100%; border-radius:50px; border:5px solid #fff; display:inline-block; }
+  .download-buttons{ display:block; gap:24px; margin-top:20px; margin-left: auto; margin-right: auto}
+  .download-buttons img{box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18), 
+            0 6px 12px rgba(0, 0, 0, 0.10), 
+            inset 0 2px 6px rgba(255, 255, 255, 0.35);  height:65px; border-radius:20px;justify-content: center; margin-left: auto; margin-right: auto; }
+
+  .plans-section{ margin-top: 80px;
+ background:#fff; padding:36px 20px; text-align:center; }
+  .plans-container{ border-radius: 50px;
+          ;display:flex; gap:18px; justify-content:center; flex-wrap:wrap; }
+  .plan{background:#fff; padding:20px; width:280px; border-radius:20px; box-shadow:0 8px 20px rgba(0,0,0,0.12); }
+  .plan:hover{
+    transform:translateY(-3px);
+transition: 0.3s;
+box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+
+  }
+  .plan h3{ color:#0b4d60; margin-bottom:10px; }
+  .logoa{ width: 200px; }
+  .plan .price{ font-size:1.6rem; color:#0b4d60; margin-bottom:10px; }
+  .plan ul{ color:#0b4d60; margin-bottom:20px; text-align:left; padding-left:18px; }
+
+  /* ========== Footer ========== */
+  .footer{ box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18), 
+            0 6px 12px rgba(0, 0, 0, 0.10), 
+            inset 0 2px 6px rgba(255, 255, 255, 0.35);
+background:#0b4d60; color:#fff; padding:36px 20px; font-family: 'Times New Roman', serif; margin-top:30px; }
+  .footer .container{ display:flex; gap:30px; flex-wrap:wrap; max-width:1200px; margin:0 auto; }
+  .footer .col{ flex:1 1 200px; }
+  .footer a{ color:#eee; }
+  #comenzar{
+    color: #FFF; background-color: #0b4d60; width: 120px; height: 40px; border-radius: 13px;
+  }
+  #comenzar:hover{
+    transform:translateY(-3px);
+transition: 0.3s;
+box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.3)
+  }
+
+  /* ========== Responsive ========== */
+  @media (max-width:1000px){
+    .team-grid{ grid-template-columns:repeat(2,1fr); }
+    .imagenes img{ max-height:200px; }
+    #title1{ font-size:42px; }
+  }
+  @media (max-width:700px){
+    .container-cards{box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18), 
+            0 6px 12px rgba(0, 0, 0, 0.10), 
+            inset 0 2px 6px rgba(255, 255, 255, 0.35); border-radius: 50px; gap:14px; }
+    .contact-cards{ grid-template-columns:1fr; }
+    .download-app-section{ flex-direction:column; align-items:center; text-align:center; }
+    #texto1{ padding:80px 20px; }
+    #title1{ font-size:34px; }
+    .info p{ margin:10px 30px; }
+    .team-grid{ grid-template-columns:1fr; }
+    #img3{ position:static; transform:none; margin-top:20px; max-width:70%; }
+    .final{ transform:none; top:0; padding:20px; }
+  }
+  </style>
+</head>
+
+<body>
+  <!-- Header (común a todas las vistas) -->
+  <header class="header">
+    <div id="logoheader">
+    <img src="images2/logob.png" id="logo1" alt="M'BUS logo" />
+    </div>
+    <nav class="BN">
+      <a href="#home">Inicio</a>
+      <a href="#about">Conócenos</a>
+      <a href="#contact">Contáctanos</a>
+      <a href="#download">Suscripciones</a>
+      <button id="btn1" onclick="location.href='#download'">Descargar</button>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ========== HOME (index.html) ========== -->
+    <section id="home" class="inicio" aria-label="Inicio">
+      <video src="images2/p3.mp4" autoplay muted loop playsinline></video>
+      <div id="texto1">
+        <p id="para1"><b>Sistema de ubicación en tiempo real</b></p>
+        <b id="title1">SABER CUÁNDO,<br/>SABER DÓNDE</b>
+        <p id="para12">La aplicación oficial para moverte por la ciudad de forma segura, exacta y sin interrupciones.</p>
+        <button class="btn2" onclick="location.href='#download'">Descargar</button>
+      </div>
+    </section>
+
+    <section id="about" class="conocenos" aria-label="Conócenos">
+      <h2 id="t2">HOLA, BIENVENIDO A M'BUS</h2>
+      <p id="para2">En M'BUS creemos que el transporte público debe ser eficiente, accesible y sostenible. Por eso, trabajamos cada día para ofrecerte soluciones que conectan.</p>
+
+      <div class="container-cards">
+        <div class="card">
+          <div class="icon"><i class="fas fa-bus"></i></div>
+          <h3>Ubicación real</h3>
+          <p>Ofrecemos un sistema preciso de ubicación en tiempo real de cada ruta en servicio.</p>
+          <button onclick="location.href='#about'">Ver Más</button>
+        </div>
+
+        <div class="card">
+          <div class="icon"><i class="fas fa-route"></i></div>
+          <h3>Sin conexión a internet</h3>
+          <p>Sistema basado en probabilidades que estima la ubicación del autobús en servicio.</p>
+          <button onclick="location.href='#about'">Ver Más</button>
+        </div>
+
+        <div class="card">
+          <div class="icon"><i class="fas fa-gamepad"></i></div>
+          <h3>Entretenimiento incluido</h3>
+          <p>Desarrollamos un videojuego para el tiempo de espera y mejorar la experiencia del usuario.</p>
+          <button onclick="location.href='#about'">Ver Más</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="pt3" aria-label="Promoción">
+      <div class="final">
+        <h1 id="t3">Descarga M'BUS y viaja sin complicaciones</h1>
+        <p id="para3">Tu viaje comienza aquí. Por el momento solo tenemos cobertura en Salamanca, Guanajuato. Esperamos el próximo año tener cobertura en todo el estado de Guanajuato.</p>
+        <div class="botones1">
+          <button class="btn4" onclick="location.href='#download'">Probar Ahora</button>
+        </div>
+      </div>    
+    </section>
+
+    <!-- ========== INDEX2 (información y carrusel) ========== -->
+    <section class="pt2" aria-label="Información">
+      <h2 id="pt2h">Revolucionando tu manera de moverte por la ciudad desde 2024</h2>
+      <p id="p2p">M'BUS proporciona seguimiento en tiempo real, rutas, paradas y tarifas a través de una interfaz intuitiva. Planifica tus viajes y ahorra tiempo con información precisa y actualizada.</p>
+    </section>
+
+    <section class="carrusel" aria-label="Servicios">
+      <h1 id="titulo-principal">Servicios y Beneficios</h1>
+      <div class="imagenes">
+        <img id="img-izq" src="images2/ser4.png" alt="servicio izquierda" />
+        <img id="img-centro" src="images2/ser1.png" alt="servicio central" />
+        <img id="img-der" src="images2/ser2.png" alt="servicio derecha" />
+      </div>
+
+      <div class="info">
+        <h2 id="titulo">Seguimiento en tiempo real</h2>
+        <p id="descripcion">Consulta la posición exacta de las unidades, tiempos estimados y rutas activas desde tu móvil.</p>
+      </div>
+    </section>
+
+    <section class="mision" aria-label="Misión">
+      <h1 id="h1h">Misión</h1>
+      <p id="p1p">Facilitar la movilidad urbana ofreciendo una herramienta eficiente, segura y accesible para planificar viajes en transporte público.</p>
+    </section>
+
+    <section class="vision" aria-label="Visión">
+      <h1 id="h12h">Visión</h1>
+      <p id="p12p">Ser la plataforma líder en movilidad urbana en Salamanca, revolucionando el transporte público con geolocalización e innovación.</p>
+    </section>
+
+    <section class="team-section" aria-label="Equipo">
+      <h2 class="team-title">Conoce a nuestro equipo</h2>
+      <div class="team-grid">
+        <div class="team-member"><img src="images2/foto4.jpg" alt=""><h3>Bladimir Razo Cuellar</h3><p>BACKEND</p></div>
+        <div class="team-member"><img src="images2/foto1.jpg" alt=""><h3>José Eduardo Rodríguez</h3><p>UI/UX</p></div>
+        <div class="team-member"><img src="images2/foto2.jpg" alt=""><h3>Alejandro Quintanilla</h3><p>TESTER</p></div>
+        <div class="team-member"><img src="images2/foto6.jpg" alt=""><h3>Daniel Vallejo</h3><p>FRONTEND</p></div>
+        <div class="team-member"><img src="images2/foto5.jpg" alt=""><h3>Diego Miranda</h3><p>FULLSTACK</p></div>
+        <div class="team-member"><img src="images2/foto3.jpg" alt=""><h3>Adolfo Sánchez</h3><p>PROJECT MANAGER</p></div>
+      </div>
+    </section>
+
+    <!-- ========== CONTACT (index3) ========== -->
+    <section id="contact" class="contacto-section" aria-label="Contacto">
+      <h2>Contáctanos</h2>
+      <div class="contact-cards">
+        <div class="card"><i class="fab fa-whatsapp"></i><h3>WhatsApp</h3><p>+52 464 653 7644</p></div>
+        <div class="card"><i class="fab fa-facebook"></i><h3>Facebook</h3><p><ahref="https://www.facebook.com/share/16kY8bpz9G/?mibextid=wwXIfr" target="_blank">M'BUS</a></p></div>
+        <div class="card"><i class="fas fa-envelope"></i><h3>Gmail</h3><p><a href="mailto:mbusoficial@gmail.com">mbusoficial@gmail.com</a></p></div>
+        <div class="card"><i class="fab fa-instagram"></i><h3>Instagram</h3><p><ahref="https://www.instagram.com/mbus_oficial" target="_blank">M'BUS</a></p></div>
+      </div>
+    </section>
+
+    <section class="faq-section" aria-label="FAQ">
+      <div class="faq-container">
+        <div class="faq-left">
+          <h2>Preguntas Frecuentes</h2>
+          <div class="faq-item"><h3>¿Qué es nuestra app?</h3><p>Herramienta para planificar rutas, horarios y pagos de forma segura.</p></div>
+          <div class="faq-item"><h3>¿En qué ciudades está?</h3><p>Actualmente en Salamanca; planeamos expandirnos.</p></div>
+          <div class="faq-item"><h3>¿Necesito internet?</h3><p>Si para datos en tiempo real; se pueden guardar rutas para consultar sin conexión.</p></div>
+        </div>
+
+        <div class="faq-right">
+          <h3>¿No encuentras la pregunta?</h3>
+          <form action="mailto:mbusoficial@gmail.com" method="post" enctype="text/plain">
+            <label for="name">Tu nombre</label>
+            <input id="name" name="Nombre" type="text" required>
+            <label for="question">Tu pregunta</label>
+            <textarea id="question" name="Pregunta" required></textarea>
+            <button type="submit" id="enviarcorreo">Enviar</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== DOWNLOAD / PLANS (index4) ========== -->
+    <section id="download" class="download-app-section" aria-label="Descarga">
+      <div class="download-content">
+        <h2>Descarga Nuestra App</h2>
+        <video id="video10" src="images2/Market MBUS.mp4" autoplay loop muted playsinline></video>
+        <p>Accede a funciones exclusivas y mantente conectado desde tu dispositivo móvil.</p>
+        <div class="download-buttons">
+          <ahref="https://play.google.com/store" target="_blank" class="btn-download google-play"><img src="images2/logos.png" alt="Google Play"></a>
+          <ahref="https://www.apple.com/app-store/" target="_blank" class="btn-download app-store"><img src="images2/appstore.png" alt="App Store"></a>
+        </div>
+      </div>
+      <div class="imagen3"><img src="images2/portada2.png" id="img3" alt="Portada app" /></div>
+    </section>
+
+    <section class="plans-section" aria-label="Planes">
+      <h2 class="plans-title">Nuestros Planes</h2>
+      <div class="plans-container">
+        <div class="plan"><h3>Gratis</h3><p class="price">$0<span>/mes</span></p><ul><li>Acceso limitado</li><li>Soporte básico</li><li>Actualizaciones</li></ul>
+            <button onclick="location.href='#download'" id="comenzar" >Comenzar Gratis</button></div>
+        <div class="plan"><h3>Pro</h3><p class="price">$39.99<span>/mes</span></p><ul><li>Acceso completo</li><li>Soporte prioritario</li><li>Funciones exclusivas</li></ul><button onclick="location.href='#download'" id="comenzar">Prueba Gratis</button></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="col"><img src="images2/logo2.png" class="logoa" alt="logo"><p id="pu">M'BUS S.A. de C.V.</p><p id="pu">Blvd. Rinconada de San Pedro, #100</p><p id="pu">Tel: +52 464 653 7644</p></div>
+      <div class="col"><h4>Navegación</h4><ul><li><a href="#home">Inicio</a></li><li><a href="#about">Conócenos</a></li><li><a href="#contact">Contáctanos</a></li></ul></div>
+      <div class="col"><h4>Quick Links</h4><ul><li><a href="#download">Servicios</a></li><li><a href="#download">Soporte</a></li><li><a href="#download">FAQ</a></li></ul></div>
+      <div class="col"><h4>Redes Sociales</h4><ul><li><a href="#">WhatsApp</a></li><li><a href="https://www.facebook.com/share/16kY8bpz9G/?mibextid=wwXIfr">Facebook</a></li><li><a href="mailto:mbusoficial@gmail.com">Gmail</a></li><li><a href="https://www.instagram.com/mbus_oficial">Instagram</a></li></ul></div>
+    </div>
+  </footer>
+
+  <!-- Font Awesome -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" defer></script>
+</body>
+</html>
