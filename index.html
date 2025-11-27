@@ -265,24 +265,106 @@ box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.3)
   }
 
   /* ========== Responsive ========== */
-  @media (max-width:1000px){
-    .team-grid{ grid-template-columns:repeat(2,1fr); }
-    .imagenes img{ max-height:200px; }
-    #title1{ font-size:42px; }
-  }
+  /* ---- MENU RESPONSIVE ---- */
   @media (max-width:700px){
-    .container-cards{box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18), 
-            0 6px 12px rgba(0, 0, 0, 0.10), 
-            inset 0 2px 6px rgba(255, 255, 255, 0.35); border-radius: 50px; gap:14px; }
-    .contact-cards{ grid-template-columns:1fr; }
-    .download-app-section{ flex-direction:column; align-items:center; text-align:center; }
-    #texto1{ padding:80px 20px; }
-    #title1{ font-size:34px; }
-    .info p{ margin:10px 30px; }
-    .team-grid{ grid-template-columns:1fr; }
-    #img3{ position:static; transform:none; margin-top:20px; max-width:70%; }
-    .final{ transform:none; top:0; padding:20px; }
+    .BN{
+      flex-direction: column;
+      position: absolute;
+      right: 10px;
+      top: 60px;
+      background: rgba(0, 0, 0, 0.45);
+      padding: 12px;
+      border-radius: 14px;
+      backdrop-filter: blur(6px);
+      gap: 6px;
+      z-index: 999;
+    }
+
+    .BN a{
+      font-size: 16px;
+      padding: 8px 12px;
+      width: 100%;
+      text-align: center;
+      display: block;
+    }
+
+    #btn1{
+      width: 100%;
+      margin-top: 6px;
+      padding: 10px;
+      border-radius: 10px;
+    }
   }
+
+
+  /* ---- HERO RESPONSIVE ---- */
+  @media (max-width:700px){
+    #texto1{
+      padding: 40px 18px;
+      text-align: center;
+    }
+
+    #title1{
+      font-size: 28px;
+      line-height: 1.2;
+    }
+
+    #para12{
+      font-size: 16px;
+      line-height: 1.3;
+    }
+  }
+
+
+  /* ---- TARJETAS Y CONTENEDORES ---- */
+  .container-cards,
+  .contact-cards{
+    height: auto !important;
+  }
+
+  @media (max-width:700px){
+    .contact-cards{
+      padding: 8px;
+    }
+  }
+
+
+  /* ---- IMÁGENES & CARRUSEL ---- */
+  @media (max-width:700px){
+    .imagenes{
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    #img-izq, #img-centro, #img-der{
+      width: 100%;
+      max-height: 220px;
+    }
+
+    .info p{
+      margin: 10px;
+    }
+  }
+
+
+  /* ---- AJUSTES GENERALES DE CELULAR ---- */
+  @media (max-width:700px){
+
+    section{
+      padding: 20px 10px;
+    }
+
+    .card{
+      width: 100% !important;
+      margin-bottom: 14px;
+    }
+
+    footer{
+      padding: 20px;
+      text-align: center;
+    }
+  }
+  
   </style>
 </head>
 
@@ -466,6 +548,7 @@ box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.3)
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" defer></script>
 </body>
 </html>
+
 
 
 
